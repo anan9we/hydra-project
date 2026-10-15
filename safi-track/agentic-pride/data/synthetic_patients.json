@@ -1,0 +1,41 @@
+{
+  "_note": "ALL DATA IS SYNTHETIC. No real patient data. IDs are made-up codes. expected_* values were worked out BY HAND from the TEWS table, not copied from the code.",
+  "patients": [
+    {"id": "P-001", "age": 34, "sex": "F", "complaint": "chest pain since morning", "arrived_minutes_ago": 12,
+     "nurse_note": "P-001, 34F, chest pain since morning. RR 24, HR 118, BP 95/60, temp 38.9, SpO2 91%, alert, walked in.",
+     "expected_tews": 7, "expected_band": "RED"},
+    {"id": "P-002", "age": 45, "sex": "M", "complaint": "laceration to left hand", "arrived_minutes_ago": 55,
+     "nurse_note": "P-002, 45M, cut his hand on a metal sheet. RR 16, HR 82, BP 128/80, temp 36.8, SpO2 98%, alert, walking. Injury, no other complaints.",
+     "expected_tews": 2, "expected_band": "GREEN"},
+    {"id": "P-003", "age": 67, "sex": "M", "complaint": "worsening shortness of breath, known COPD", "arrived_minutes_ago": 30,
+     "nurse_note": "P-003, 67M, short of breath, known COPD. RR 28, HR 104, BP 150/90, temp 37.2, SpO2 88%, alert, needs help to walk. Reports shortness of breath.",
+     "expected_tews": 4, "expected_band": "ORANGE"},
+    {"id": "P-004", "age": 22, "sex": "F", "complaint": "fever and sore throat", "arrived_minutes_ago": 80,
+     "nurse_note": "P-004, 22F, fever and sore throat 2 days. RR 18, HR 96, BP 118/76, temp 38.6, SpO2 98%, alert, walking.",
+     "expected_tews": 3, "expected_band": "YELLOW"},
+    {"id": "P-005", "age": 29, "sex": "M", "complaint": "seizure at home, now drowsy", "arrived_minutes_ago": 8,
+     "nurse_note": "P-005, 29M, brought by family after a seizure at home, seizure has stopped. RR 20, HR 108, BP 130/84, temp 37.0, SpO2 96%, responds to voice, needs help to walk.",
+     "expected_tews": 4, "expected_band": "ORANGE"},
+    {"id": "P-006", "age": 52, "sex": "F", "complaint": "dizziness, BP check", "arrived_minutes_ago": 95,
+     "nurse_note": "P-006, 52F, mild dizziness, wants BP checked. RR 14, HR 76, BP 142/88, temp 36.6, SpO2 99%, alert, walking.",
+     "expected_tews": 0, "expected_band": "GREEN"},
+    {"id": "P-007", "age": 78, "sex": "M", "complaint": "found drowsy at home", "arrived_minutes_ago": 5,
+     "nurse_note": "P-007, 78M, found drowsy at home. RR 30, HR 132, BP 78/40, temp 34.8, SpO2 89%, responds only to pain, cannot walk.",
+     "expected_tews": 14, "expected_band": "RED"},
+    {"id": "P-008", "age": 31, "sex": "F", "complaint": "34 weeks pregnant, vaginal bleeding", "arrived_minutes_ago": 20,
+     "nurse_note": "P-008, 31F, 34 weeks pregnant with vaginal bleeding. RR 20, HR 110, BP 102/66, temp 37.0, SpO2 98%, alert, walking. Pregnancy bleeding reported.",
+     "expected_tews": 2, "expected_band": "ORANGE"},
+    {"id": "P-009", "age": 8, "sex": "M", "complaint": "fever and vomiting", "arrived_minutes_ago": 25,
+     "nurse_note": "P-009, 8M, fever and vomiting since yesterday. RR 26, HR 120, temp 39.1.",
+     "expected_tews": null, "expected_band": null, "expected_outcome": "out_of_scope_paediatric"},
+    {"id": "P-010", "age": 55, "sex": "M", "complaint": "choking on food", "arrived_minutes_ago": 3,
+     "nurse_note": "P-010, 55M, choking on food, airway partly blocked. RR 18, HR 100, BP 130/80, temp 36.8, SpO2 95%, alert, walking. Airway compromised.",
+     "expected_tews": 1, "expected_band": "RED"}
+  ],
+  "followups": [
+    {"patient_id": "P-004", "note": "Re-check P-004 after 40 minutes: RR 26, HR 124, BP 92/58, temp 39.4, SpO2 93%, responds to voice, needs help to walk.",
+     "expected_flag": true, "expected_tews": 9},
+    {"patient_id": "P-006", "note": "Re-check P-006: RR 14, HR 78, BP 140/86, temp 36.7, SpO2 99%, alert, walking.",
+     "expected_flag": false, "expected_tews": 0}
+  ]
+}

@@ -1,0 +1,19 @@
+# secrets: NEVER commit these
+.env
+env.txt
+_env
+credentials.json
+token.json
+*.pem
+
+# local data
+*.db
+*.sqlite
+reports.json
+
+# python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.pytest_cache/
