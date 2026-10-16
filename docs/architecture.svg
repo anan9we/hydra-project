@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="980" viewBox="0 0 1500 980" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="1500" height="980" fill="#f8fafc"/>
+<text x="30" y="40" font-size="24" font-weight="800" fill="#0f172a">Triage Desk: agent, MCP and human-in-the-loop architecture</text>
+<text x="30" y="62" font-size="13" fill="#475569">Patient data stays inside the dashed hospital boundary; only a de-identified alert crosses it. The agent can only PROPOSE; only a named clinician can change the live queue.</text>
+<path d="M20,80 H1490 V786 H1212 V960 H20 Z" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="10 6" stroke-linejoin="round"/>
+<text x="36" y="102" font-size="13" font-weight="700" fill="#0f766e">HOSPITAL MACHINE / LAN: no patient data leaves this boundary</text>
+<rect x="40" y="130" width="230" height="90" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+<text x="52" y="152" font-size="15" font-weight="700" fill="#0f172a">Triage nurse</text>
+<text x="52" y="173" font-size="12.5" fill="#334155">Records vitals + symptom note</text>
+<text x="52" y="191" font-size="12.5" fill="#334155">(English / Kiswahili)</text>
+<rect x="40" y="470" width="230" height="100" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+<text x="52" y="492" font-size="15" font-weight="700" fill="#0f172a">Clinician (named, PIN)</text>
+<text x="52" y="513" font-size="12.5" fill="#334155">Reviews cited evidence,</text>
+<text x="52" y="531" font-size="12.5" fill="#334155">approves / rejects / overrides</text>
+<rect x="40" y="800" width="230" height="90" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+<text x="52" y="822" font-size="15" font-weight="700" fill="#0f172a">Charge nurse / admin</text>
+<text x="52" y="843" font-size="12.5" fill="#334155">Gets de-identified e-mail alert</text>
+<text x="52" y="861" font-size="12.5" fill="#334155">(count + colour, no vitals)</text>
+<rect x="320" y="130" width="260" height="110" rx="10" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.6"/>
+<text x="332" y="152" font-size="15" font-weight="700" fill="#0f172a">Web app + CLI (Flask)</text>
+<text x="332" y="173" font-size="12.5" fill="#334155">Intake form, Run-triage button,</text>
+<text x="332" y="191" font-size="12.5" fill="#334155">live tool-call trace,</text>
+<text x="332" y="209" font-size="12.5" fill="#334155">approval queue, audit view</text>
+<rect x="320" y="440" width="260" height="130" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="332" y="462" font-size="15" font-weight="700" fill="#0f172a">Approval gate  gate.decide()</text>
+<text x="332" y="483" font-size="12.5" fill="#334155">Host-side only, NOT an MCP tool.</text>
+<text x="332" y="501" font-size="12.5" fill="#334155">Needs clinician name + PIN.</text>
+<text x="332" y="519" font-size="12.5" fill="#334155">Writes live queue + hash-chained</text>
+<text x="332" y="537" font-size="12.5" fill="#334155">audit row (inputs, subject, time)</text>
+<rect x="320" y="760" width="260" height="130" rx="10" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.6"/>
+<text x="332" y="782" font-size="15" font-weight="700" fill="#0f172a">Notifier</text>
+<text x="332" y="803" font-size="12.5" fill="#334155">After a run: e-mail alert with</text>
+<text x="332" y="821" font-size="12.5" fill="#334155">ticket id + colour only.</text>
+<text x="332" y="839" font-size="12.5" fill="#334155">Failure never blocks triage.</text>
+<rect x="640" y="130" width="540" height="300" rx="12" fill="#ecfdf5" stroke="#047857" stroke-width="1.8"/>
+<text x="654" y="154" font-size="15" font-weight="700" fill="#065f46">Agent runtime (Pydantic AI, open source)</text>
+<rect x="656" y="168" width="250" height="100" rx="10" fill="#fff" stroke="#047857" stroke-width="1.6"/>
+<text x="668" y="190" font-size="14" font-weight="700" fill="#0f172a">Triage agent</text>
+<text x="668" y="211" font-size="12.5" fill="#334155">Plan > call tool > observe ></text>
+<text x="668" y="229" font-size="12.5" fill="#334155">recover (retry on error).</text>
+<text x="668" y="247" font-size="12.5" fill="#334155">Cannot set a colour itself.</text>
+<rect x="924" y="168" width="240" height="100" rx="10" fill="#fff" stroke="#047857" stroke-width="1.6"/>
+<text x="936" y="190" font-size="14" font-weight="700" fill="#0f172a">Output validator</text>
+<text x="936" y="211" font-size="12.5" fill="#334155">Rejects claims with no real</text>
+<text x="936" y="229" font-size="12.5" fill="#334155">proposal id; diagnosis wording.</text>
+<text x="936" y="247" font-size="12.5" fill="#334155">Forces retry (self-repair).</text>
+<rect x="656" y="290" width="508" height="124" rx="10" fill="#fff" stroke="#047857" stroke-width="1.6"/>
+<text x="668" y="312" font-size="14" font-weight="700" fill="#0f172a">MCP client (MCPToolset, stdio transport)</text>
+<text x="668" y="333" font-size="12.5" fill="#334155">Discovers the 6 tools at start-up; sends JSON-RPC tool calls;</text>
+<text x="668" y="351" font-size="12.5" fill="#334155">returns results and readable errors to the agent.</text>
+<text x="668" y="369" font-size="12.5" fill="#334155">One server process per run (run id passed in) so every call is logged.</text>
+<text x="668" y="387" font-size="12.5" fill="#334155">Memory: per-run message history + SQLite; no long-term chat memory.</text>
+<rect x="640" y="470" width="540" height="300" rx="12" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.8"/>
+<text x="654" y="494" font-size="15" font-weight="700" fill="#5b21b6">MCP server we built: triage-desk (MCPServer, stdio)</text>
+<rect x="656" y="508" width="160" height="54" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="668" y="530" font-size="12.5" font-weight="700" fill="#0f172a">get_intake</text>
+<text x="668" y="551" font-size="12.5" fill="#334155">read-only, no name</text>
+<rect x="826" y="508" width="160" height="54" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="838" y="530" font-size="12.5" font-weight="700" fill="#0f172a">score_tews</text>
+<text x="838" y="551" font-size="12.5" fill="#334155">SATS score in code</text>
+<rect x="996" y="508" width="160" height="54" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="1008" y="530" font-size="12.5" font-weight="700" fill="#0f172a">assert_discriminator</text>
+<text x="1008" y="551" font-size="12.5" fill="#334155">quote verified</text>
+<rect x="656" y="570" width="160" height="54" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="668" y="592" font-size="12.5" font-weight="700" fill="#0f172a">submit_priority</text>
+<text x="668" y="613" font-size="12.5" fill="#334155">PENDING proposal</text>
+<rect x="826" y="570" width="160" height="54" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="838" y="592" font-size="12.5" font-weight="700" fill="#0f172a">flag_recheck</text>
+<text x="838" y="613" font-size="12.5" fill="#334155">PENDING proposal</text>
+<rect x="996" y="570" width="160" height="54" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="1008" y="592" font-size="12.5" font-weight="700" fill="#0f172a">route_referral</text>
+<text x="1008" y="613" font-size="12.5" fill="#334155">PENDING proposal</text>
+<rect x="656" y="636" width="508" height="124" rx="10" fill="#fff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="668" y="658" font-size="13" font-weight="700" fill="#0f172a">Guards inside the server (outside the model)</text>
+<text x="668" y="679" font-size="12.5" fill="#334155">Colour = max(TEWS colour, verified discriminators); agent passes none.</text>
+<text x="668" y="697" font-size="12.5" fill="#334155">Every claim must quote the nurse's own entry (substring check).</text>
+<text x="668" y="715" font-size="12.5" fill="#334155">Under-12s not scored (paediatric SATS): escalate to a human.</text>
+<text x="668" y="733" font-size="12.5" fill="#334155">Diagnosis / prescription wording rejected.</text>
+<text x="668" y="751" font-size="12.5" fill="#334155">Residency guard: real patients blocked if LLM endpoint is not local.</text>
+<rect x="1230" y="130" width="250" height="110" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="1242" y="152" font-size="15" font-weight="700" fill="#0f172a">LLM (open-weights, local)</text>
+<text x="1242" y="173" font-size="12.5" fill="#334155">Qwen2.5-7B via Ollama</text>
+<text x="1242" y="191" font-size="12.5" fill="#334155">OpenAI-compatible API on</text>
+<text x="1242" y="209" font-size="12.5" fill="#334155">localhost. Model is swappable.</text>
+<rect x="1230" y="262" width="250" height="100" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="1242" y="284" font-size="15" font-weight="700" fill="#0f172a">Optional cloud LLM</text>
+<text x="1242" y="305" font-size="12.5" fill="#334155">Gemini: SYNTHETIC patients only</text>
+<text x="1242" y="323" font-size="12.5" fill="#334155">(comparison). Blocked for</text>
+<text x="1242" y="341" font-size="12.5" fill="#334155">real patient records.</text>
+<rect x="1230" y="470" width="250" height="300" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.6"/>
+<text x="1242" y="492" font-size="15" font-weight="700" fill="#0f172a">SQLite (local file)</text>
+<text x="1242" y="513" font-size="12.5" fill="#334155">patients, entries (nurse data)</text>
+<text x="1242" y="531" font-size="12.5" fill="#334155">assertions (verified quotes)</text>
+<text x="1242" y="549" font-size="12.5" fill="#334155">proposals (PENDING)</text>
+<text x="1242" y="567" font-size="12.5" fill="#334155">tool_log (every call)</text>
+<text x="1242" y="585" font-size="12.5" fill="#334155">runs (tokens, cost, time)</text>
+<text x="1242" y="603" font-size="12.5" fill="#334155">clinicians (hashed PINs)</text>
+<text x="1242" y="621" font-size="12.5" fill="#334155">approvals (hash chain)</text>
+<text x="1242" y="639" font-size="12.5" fill="#334155">queue (LIVE queue)</text>
+<text x="1242" y="657" font-size="12.5" fill="#334155"></text>
+<text x="1242" y="675" font-size="12.5" fill="#334155">Agent path: read + pending only.</text>
+<text x="1242" y="693" font-size="12.5" fill="#334155">Only the gate writes queue/approvals.</text>
+<rect x="1230" y="800" width="250" height="90" rx="10" fill="#fce7f3" stroke="#be185d" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="1242" y="822" font-size="15" font-weight="700" fill="#0f172a">Gmail API (external)</text>
+<text x="1242" y="843" font-size="12.5" fill="#334155">OAuth2, gmail.send scope only</text>
+<text x="1242" y="861" font-size="12.5" fill="#334155">(SMTP app-password fallback)</text>
+<line x1="270" y1="175" x2="320" y2="175" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)"/>
+<circle cx="295" cy="160" r="11" fill="#0f766e"/><text x="295" y="164.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<text x="283" y="192" font-size="11" fill="#0f766e" font-weight="600">intake</text>
+<line x1="580" y1="175" x2="656" y2="215" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)"/>
+<circle cx="618" cy="190" r="11" fill="#0f766e"/><text x="618" y="194.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<line x1="906" y1="218" x2="924" y2="218" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)" marker-start="url(#a)"/>
+<line x1="1164" y1="200" x2="1230" y2="190" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)" marker-start="url(#a)"/>
+<circle cx="1197" cy="170" r="11" fill="#0f766e"/><text x="1197" y="174.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<line x1="1164" y1="240" x2="1230" y2="312" stroke="#c2410c" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<line x1="910" y1="410" x2="910" y2="470" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)" marker-start="url(#a)"/>
+<circle cx="910" cy="440" r="11" fill="#0f766e"/><text x="910" y="444.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<text x="928" y="444" font-size="12" fill="#0f766e" font-weight="600">JSON-RPC over stdio</text>
+<line x1="1180" y1="620" x2="1230" y2="620" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)" marker-start="url(#a)"/>
+<circle cx="1205" cy="602" r="11" fill="#0f766e"/><text x="1205" y="606.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+<line x1="450" y1="440" x2="450" y2="240" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)"/>
+<circle cx="450" cy="340" r="11" fill="#0f766e"/><text x="450" y="344.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+<text x="466" y="340" font-size="12" fill="#0f766e" font-weight="600">pending proposals</text><text x="466" y="356" font-size="12" fill="#0f766e" font-weight="600">+ cited evidence</text>
+<line x1="270" y1="520" x2="320" y2="510" stroke="#0f766e" stroke-width="2.2" marker-end="url(#a)" marker-start="url(#a)"/>
+<circle cx="295" cy="490" r="11" fill="#0f766e"/><text x="295" y="494.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+<text x="60" y="592" font-size="11" fill="#0f766e" font-weight="600">approve / reject / override</text>
+<polyline points="580,550 610,550 610,792 1205,792 1205,740 1230,740" fill="none" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#a)"/>
+<circle cx="900" cy="792" r="11" fill="#b91c1c"/><text x="900" y="796.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">8</text>
+<text x="660" y="815" font-size="12" fill="#b91c1c" font-weight="600">gate writes LIVE queue + audit log: no path from the agent or MCP server</text>
+<line x1="580" y1="850" x2="1230" y2="850" stroke="#be185d" stroke-width="2.2" marker-end="url(#a)"/>
+<circle cx="905" cy="850" r="11" fill="#be185d"/><text x="905" y="854.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">9</text>
+<text x="660" y="878" font-size="12" fill="#be185d" font-weight="600">de-identified alert (HTTPS, OAuth2)</text>
+<line x1="320" y1="845" x2="270" y2="845" stroke="#be185d" stroke-width="2.2" marker-end="url(#a)"/>
+<circle cx="295" cy="822" r="11" fill="#be185d"/><text x="295" y="826.5" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">10</text>
+<text x="36" y="930" font-size="12" fill="#475569">Data flow: 1 nurse intake > 2 run triage > 3 LLM reasoning > 4 MCP tool calls > 5 read data / write PENDING proposals</text><text x="36" y="948" font-size="12" fill="#475569">6 clinician reviews cited evidence > 7 approves with PIN > 8 gate updates live queue + audit log > 9 alert via Gmail API > 10 charge nurse notified</text>
+</svg>

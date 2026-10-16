@@ -1,3 +1,0 @@
-# Bit 1 (MCP server). More packages are added in bits 2-4.
-mcp>=1.2,<2
-tzdata
